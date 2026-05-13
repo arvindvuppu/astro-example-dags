@@ -1,7 +1,7 @@
 name: Astronomer CI - Deploy code
 
 on:
-  workflow_dispatch:        # ✅ enables manual Run Workflow button
+  workflow_dispatch:
   push:
     branches:
       - main
@@ -16,12 +16,7 @@ jobs:
     - name: Install Astro CLI
       run: curl -sSL https://install.astronomer.io | sudo bash -s
 
-    - name: Login to Astronomer
-      run: astro workspace switch ${{ secrets.ASTRO_WORKSPACE_ID }}
-      env:
-        ASTRO_API_TOKEN: ${{ secrets.ASTRO_API_TOKEN }}
-
     - name: Deploy DAGs
-      run: astro deploy ${{ secrets.ASTRO_DEPLOYMENT_ID }} --dags-only --force
+      run: astro deploy ${{ secrets.ASTRO_DEPLOYMENT_ID }} --dags --force --workspace-id ${{ secrets.ASTRO_WORKSPACE_ID }}
       env:
         ASTRO_API_TOKEN: ${{ secrets.ASTRO_API_TOKEN }}
