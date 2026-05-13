@@ -1,6 +1,7 @@
 name: Astronomer CI - Deploy code
 
 on:
+  workflow_dispatch:        # ✅ enables manual Run Workflow button
   push:
     branches:
       - main
