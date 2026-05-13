@@ -1,5 +1,5 @@
 name: Astronomer CI - Deploy code
-
+FORCE_JAVASCRIPT_ACTIONS_TO_NODE24=true
 on:
   workflow_dispatch:
     inputs:
