@@ -26,4 +26,6 @@ jobs:
       uses: astronomer/deploy-action@v0.6
       with:
         deployment-id: ${{ env.DEPLOYMENT_ID }}
-        dags-only: true
+        workspace: ${{ vars.ASTRO_WORKSPACE_ID }}
+        action: deploy
+        deploy-image: false
